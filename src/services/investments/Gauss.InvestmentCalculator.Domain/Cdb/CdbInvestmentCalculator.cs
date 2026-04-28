@@ -18,9 +18,24 @@ public sealed class CdbInvestmentCalculator : IInvestmentCalculator
             grossAmount *= 1 + (CdbInvestmentOptions.MonthlyCdi * CdbInvestmentOptions.BankRate);
         }
 
+        var roundedGrossAmount = RoundMoney(grossAmount);
+        var profitAmount = RoundMoney(roundedGrossAmount - simulation.InitialAmount);
+        var incomeTaxRate = IncomeTaxRate.GetByTermInMonths(simulation.TermInMonths);
+        var incomeTaxAmount = RoundMoney(profitAmount * incomeTaxRate);
+        var netAmount = RoundMoney(roundedGrossAmount - incomeTaxAmount);
+
         return new InvestmentSimulationResult(
             simulation.InitialAmount,
             simulation.TermInMonths,
-            decimal.Round(grossAmount, MoneyScale, RoundingStrategy));
+            roundedGrossAmount,
+            profitAmount,
+            incomeTaxRate,
+            incomeTaxAmount,
+            netAmount);
+    }
+
+    private static decimal RoundMoney(decimal value)
+    {
+        return decimal.Round(value, MoneyScale, RoundingStrategy);
     }
 }
