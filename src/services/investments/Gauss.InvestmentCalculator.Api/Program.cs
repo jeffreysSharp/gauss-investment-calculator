@@ -11,14 +11,12 @@ builder.Services.InstallServices(
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+
+app.MapScalarApiReference(options =>
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference(options =>
-    {
-        options.WithTitle("GAUSS Investment Calculator API");
-    });
-}
+    options.WithTitle("GAUSS Investment Calculator API");
+});
 
 app.UseHttpsRedirection();
 
