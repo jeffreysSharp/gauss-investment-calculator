@@ -1,1 +1,1 @@
-export const API_BASE_URL = 'https://localhost:7026';
+export const API_BASE_URL = 'https://app-gauss-investment-calculator-api-dev.azurewebsites.net';

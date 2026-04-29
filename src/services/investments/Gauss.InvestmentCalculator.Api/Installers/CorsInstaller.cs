@@ -12,8 +12,9 @@ public sealed class CorsInstaller : IInstaller
             {
                 policy
                     .WithOrigins(
-                        "http://localhost:4200",
-                        "https://localhost:4200")
+                    "http://localhost:4200",
+                    "https://localhost:4200",
+                    "https://ashy-river-0c0baee0f.7.azurestaticapps.net")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
