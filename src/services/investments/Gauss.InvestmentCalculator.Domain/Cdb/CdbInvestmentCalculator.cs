@@ -25,6 +25,7 @@ public sealed class CdbInvestmentCalculator : IInvestmentCalculator
         var netAmount = RoundMoney(roundedGrossAmount - incomeTaxAmount);
 
         return new InvestmentSimulationResult(
+            simulation.ProductType,
             simulation.InitialAmount,
             simulation.TermInMonths,
             roundedGrossAmount,
