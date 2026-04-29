@@ -1,1 +1,5 @@
-export const API_BASE_URL = 'https://app-gauss-investment-calculator-api-dev.azurewebsites.net';
+import { environment } from "../../../environments/environment";
+
+export const API_CONFIG = {
+  baseUrl: environment.apiBaseUrl,
+} as const;
