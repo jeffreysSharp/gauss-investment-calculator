@@ -1,6 +1,0 @@
-@Gauss.InvestmentCalculator.Api_HostAddress = http://localhost:5022
-
-GET {{Gauss.InvestmentCalculator.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
