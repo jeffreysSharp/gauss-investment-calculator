@@ -4,7 +4,10 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.InstallServices(builder.Configuration, typeof(Program).Assembly);
+
+builder.Services.InstallServices(
+    builder.Configuration, 
+    typeof(Program).Assembly);
 
 var app = builder.Build();
 
@@ -19,7 +22,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseCors(CorsInstaller.PolicyName);
 
 app.MapControllers();
 
