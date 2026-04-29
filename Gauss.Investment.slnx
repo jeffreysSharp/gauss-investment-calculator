@@ -6,8 +6,8 @@
     <Project Path="src/services/investments/Gauss.InvestmentCalculator.Application/Gauss.InvestmentCalculator.Application.csproj" Id="ccbcbffd-3ab6-4f14-a259-ee10cdf75578" />
     <Project Path="src/services/investments/Gauss.InvestmentCalculator.Domain/Gauss.InvestmentCalculator.Domain.csproj" Id="fbc3869c-d560-4a38-9533-9d522140fedb" />
   </Folder>
-  <Folder Name="/src/Web/" />
   <Folder Name="/tests/">
-    <Project Path="tests/Gauss.InvestmentCalculator.UnitTests.csproj" />
+    <Project Path="tests/Gauss.InvestmentCalculator.IntegrationTests/Gauss.InvestmentCalculator.IntegrationTests.csproj" />
+    <Project Path="tests/Gauss.InvestmentCalculator.UnitTests/Gauss.InvestmentCalculator.UnitTests.csproj" />
   </Folder>
 </Solution>
