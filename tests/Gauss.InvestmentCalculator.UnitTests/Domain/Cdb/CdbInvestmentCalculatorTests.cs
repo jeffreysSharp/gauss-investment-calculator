@@ -11,7 +11,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(1000m, 2);
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 2);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -27,7 +27,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(1000m, 12);
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 12);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -41,7 +41,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(1000m, 2);
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 2);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -55,7 +55,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(1000m, 2);
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 2);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -70,7 +70,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(1000m, 2);
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 2);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -98,7 +98,7 @@ public sealed class CdbInvestmentCalculatorTests
     {
         // Arrange
         var calculator = new CdbInvestmentCalculator();
-        var simulation = InvestmentSimulation.Create(initialAmount, termInMonths);
+        var simulation = InvestmentSimulation.CreateCdb(initialAmount, termInMonths);
 
         // Act
         var result = calculator.Calculate(simulation);
@@ -124,5 +124,15 @@ public sealed class CdbInvestmentCalculatorTests
         act.Should()
             .Throw<ArgumentNullException>()
             .WithParameterName("simulation");
+    }
+
+    [Fact(DisplayName = "Should create CDB investment simulation when input is valid")]
+    public void CreateCdb_ShouldCreateCdbInvestmentSimulation_WhenInputIsValid()
+    {
+        var simulation = InvestmentSimulation.CreateCdb(1000m, 12);
+
+        simulation.ProductType.Should().Be(InvestmentProductType.Cdb);
+        simulation.InitialAmount.Should().Be(1000m);
+        simulation.TermInMonths.Should().Be(12);
     }
 }

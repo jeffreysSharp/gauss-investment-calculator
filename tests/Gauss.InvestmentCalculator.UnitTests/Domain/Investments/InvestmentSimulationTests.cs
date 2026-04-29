@@ -13,7 +13,7 @@ public sealed class InvestmentSimulationTests
         const int termInMonths = 12;
 
         // Act
-        var simulation = InvestmentSimulation.Create(initialAmount, termInMonths);
+        var simulation = InvestmentSimulation.CreateCdb(initialAmount, termInMonths);
 
         // Assert
         simulation.InitialAmount.Should().Be(initialAmount);
@@ -31,7 +31,7 @@ public sealed class InvestmentSimulationTests
         const int termInMonths = 12;
 
         // Act
-        var act = () => InvestmentSimulation.Create(initialAmount, termInMonths);
+        var act = () => InvestmentSimulation.CreateCdb(initialAmount, termInMonths);
 
         // Assert
         act.Should()
@@ -50,7 +50,7 @@ public sealed class InvestmentSimulationTests
         const decimal initialAmount = 1000m;
 
         // Act
-        var act = () => InvestmentSimulation.Create(initialAmount, termInMonths);
+        var act = () => InvestmentSimulation.CreateCdb(initialAmount, termInMonths);
 
         // Assert
         act.Should()

@@ -14,7 +14,7 @@ public sealed class InvestmentsController(IInvestmentCalculator investmentCalcul
     public ActionResult<CalculateCdbInvestmentResponse> CalculateCdbInvestment(
         [FromBody] CalculateCdbInvestmentRequest request)
     {
-        var simulation = InvestmentSimulation.Create(
+        var simulation = InvestmentSimulation.CreateCdb(
             request.InitialAmount,
             request.TermInMonths);
 
