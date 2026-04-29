@@ -26,6 +26,37 @@ The current implementation supports:
 
 ---
 
+## Public Demo
+
+The application is published on Azure and can be accessed through the following links:
+
+### Web Application
+
+```text
+https://ashy-river-0c0baee0f.7.azurestaticapps.net/
+```
+
+### Backend API
+
+```text
+https://app-gauss-investment-calculator-api-dev.azurewebsites.net/
+```
+
+### API Documentation
+
+```text
+https://app-gauss-investment-calculator-api-dev.azurewebsites.net/scalar
+```
+
+The public demo environment uses:
+
+- Azure Static Web Apps for the Angular frontend
+- Azure App Service for the .NET API
+- HTTPS communication between frontend and backend
+- CORS configured for the published frontend URL
+
+---
+
 ## Technologies
 
 ### Backend
@@ -341,6 +372,33 @@ npm run build
 
 ---
 
+## Cloud Validation
+
+The published environment can be validated using the public web application:
+
+```text
+https://ashy-river-0c0baee0f.7.azurestaticapps.net/
+```
+
+Example simulation:
+
+```text
+Initial amount: 1000
+Term in months: 12
+```
+
+Expected result:
+
+```text
+Gross Amount: R$ 1,123.08
+Net Amount: R$ 1,098.46
+Profit Amount: R$ 123.08
+Income Tax Amount: R$ 24.62
+Income Tax Rate: 20%
+```
+
+---
+
 ## Example Simulation
 
 For an initial amount of:
@@ -403,6 +461,9 @@ Tailwind CSS is used in the Angular application to create a clean, responsive an
 - Angular web interface in pt-BR
 - API documentation with Scalar
 - Unit tests for business rules
+- Public Azure demo environment
+- Angular frontend hosted on Azure Static Web Apps
+- .NET API hosted on Azure App Service
 
 ---
 
