@@ -170,12 +170,12 @@ tmp/
 # =========================================================
 # Package managers
 # =========================================================
-package-lock.json
+# Commit package-lock.json for reproducible npm builds and CI stability.
+# package-lock.json
+
+# Ignore lock files from package managers not used by this project.
 yarn.lock
 pnpm-lock.yaml
-
-# If you want reproducible frontend builds, remove the lock files above
-# and commit the lock file used by the project.
 
 # =========================================================
 # TypeScript / JavaScript
