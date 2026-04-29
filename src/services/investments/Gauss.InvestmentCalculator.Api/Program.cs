@@ -4,7 +4,7 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
+builder.Services.AddHealthChecks();
 builder.Services.InstallServices(
     builder.Configuration, 
     typeof(Program).Assembly);
@@ -23,5 +23,7 @@ app.UseHttpsRedirection();
 app.UseCors(CorsInstaller.PolicyName);
 
 app.MapControllers();
+
+app.MapHealthChecks("/health");
 
 app.Run();
