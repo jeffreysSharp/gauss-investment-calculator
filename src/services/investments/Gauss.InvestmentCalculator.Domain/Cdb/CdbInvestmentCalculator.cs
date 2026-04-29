@@ -11,11 +11,14 @@ public sealed class CdbInvestmentCalculator : IInvestmentCalculator
     {
         ArgumentNullException.ThrowIfNull(simulation);
 
+        var configuration = CdbInvestmentOptions.DefaultConfiguration;
+        var monthlyYieldRate = configuration.MonthlyIndexRate * configuration.IndexPercentage;
+
         var grossAmount = simulation.InitialAmount;
 
         for (var month = 0; month < simulation.TermInMonths; month++)
         {
-            grossAmount *= 1 + (CdbInvestmentOptions.MonthlyCdi * CdbInvestmentOptions.BankRate);
+            grossAmount *= 1 + monthlyYieldRate;
         }
 
         var roundedGrossAmount = RoundMoney(grossAmount);
